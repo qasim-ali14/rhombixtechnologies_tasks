@@ -1,11 +1,258 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+      font-family: 'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071126 0%, #071827 100%);color:#e6eef6;line-height:1.45}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:800}
+    nav a{color:var(--muted);margin-left:18px;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:30px 0}
+    .card{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 8px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+    .intro h1{margin:0;font-size:28px}
+    .intro p{color:var(--muted);margin:10px 0 18px}
+    .cta{display:flex;gap:12px}
+    .btn{background:var(--accent);color:#042027;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+    .avatar{width:200px;height:200px;border-radius:16px;background:linear-gradient(180deg,#0b1220,#081126);display:flex;align-items:center;justify-content:center;font-weight:700;border:4px solid rgba(255,255,255,0.03)}
+     .avatar img{ width: 100%; height: 100%; }
+    /* sections */
+    section{padding:36px 0}
+    h2{font-size:20px;margin:0 0 12px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* grid for projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .project{padding:14px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
+    .project h3{margin:0 0 8px;font-size:16px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* skills */
+    .skills{display:flex;gap:10px;flex-wrap:wrap}
+    .skill{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px 10px;border-radius:8px;font-weight:600}
+
+    /* timeline */
+    .timeline{border-left:2px solid rgba(255,255,255,0.04);padding-left:16px}
+    .job{margin-bottom:18px}
+    .job small{color:var(--muted)}
+
+    /* testimonials */
+    .test-list{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
+    .test{min-width:260px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+
+    /* blogs */
+    .blogs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .blog{padding:12px;border-radius:10px;background:var(--glass)}
+
+    /* contact */
+    form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{grid-column:1/-1;min-height:120px}
+    .footer{padding:18px 0;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      nav{display:none}
+      header{gap:12px}
+    }
+  </style>
 </head>
 <body>
-    <h2> hi this is my portfolio</h2>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">QA</div>
+        <div>
+          <div style="font-weight:700">Qasim Ali</div>
+          <div class="muted" style="font-size:12px">Front-end Developer • performance marketor</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="intro card">
+          <h1>Hello — I'm <span style="color:var(--accent)">Qasim</span></h1>
+          <p class="muted">I build clean, responsive web interfaces and make tailored marketing stratagies. I focus on readable code, UX, and performance.</p>
+          <div class="cta">
+            <a class="btn" href="#projects">See Projects</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+          </div>
+          <div style="margin-top:18px" class="muted">Based in Pakistan • Open to freelance & remote work</div>
+        </div>
+        <aside class="card profile">
+          <div class="avatar"> <img src="qasim.jpg" alt=""></div>
+          <h3 style="margin:12px 0 6px">Qasim Ali</h3>
+          <div class="muted">Front-end Developer & performance marketor</div>
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <a class="btn" href="qasim:qali64620@gmail.com">Email</a>
+            <a class="btn secondary" href="#contact">Hire</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <div class="card">
+          <h2>Background</h2>
+          <p class="muted">I have done my bachelor in IT with 7  months of experience in performance  marketing. I enjoy turning ideas into interactive interfaces.</p>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="project">
+            <h3>Monster Truck 3D Game</h3>
+            <p class="muted">A 3D truck simulation made in Unity using realistic physics and AI opponents.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">3D</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <h3>Real Estate Clone (React)</h3>
+            <p class="muted">A bilingual RTL-friendly real estate site with responsive cards and image carousels.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">React</span><span class="tag">RTL</span><span class="tag">Responsive</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <h3>Landing Page for real estate</h3>
+            <p class="muted">A marketing landing page with clear CTAs and social links for a restaurant.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Marketing</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="card skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">React (learning)</span>
+          <span class="skill">c,c++</span>
+          <span class="skill">Git & GitHub</span>
+          <span class="skill">Responsive Design</span>
+           <span class="skill">marketing tools</span>
+          <span class="skill">research and analysis</span>
+          <span class="skill">tailored stratagies</span>
+
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="card timeline">
+          <div class="job">
+            <strong>Front-end Developer — Bright (6 months)</strong>
+            <div class="muted">Jan 2024 — Jul 2024</div>
+            <p class="muted">Managed social media marketing landing pages and built responsive website components.</p>
+          </div>
+          <div class="job">
+            <strong>Marketing Manager — Food Valley</strong>
+            <div class="muted">Aug 2023 — Dec 2023</div>
+            <p class="muted">Ran campaigns, created content, and improved local reach using ads and SEO basics.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="test-list">
+          <div class="test card">
+            <strong>Ahmed R.</strong>
+            <div class="muted">"Delivered the landing page quickly and it increased bookings."</div>
+          </div>
+          <div class="test card">
+            <strong>Sara K.</strong>
+            <div class="muted">"Clear communication and clean code — recommended."</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blogs">
+        <h2>Blogs / Articles</h2>
+        <div class="blogs">
+          <article class="blog card">
+            <h3>How I built a responsive property card</h3>
+            <p class="muted">Step-by-step guide: structure, CSS, and mobile-first approach.</p>
+          </article>
+          <article class="blog card">
+            <h3>Tips for stratagies for real estate</h3>
+            <p class="muted">become a guru of performance marketing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="achievements">
+        <h2>Achievements</h2>
+        <div class="card" style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="tag">Completed Final Year Project: Monster Truck 3D</div>
+          <div class="tag">Managed 3 successful marketing campaigns</div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="card" style="display:grid;grid-template-columns:1fr 350px;gap:18px">
+          <form onsubmit="event.preventDefault(); alert('Replace with your backend or mailto.');">
+            <input placeholder="Your name" required>
+            <input placeholder="Your email" required>
+            <input placeholder="Subject">
+            <textarea placeholder="Message" required></textarea>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+          <div style="padding:12px">
+            <h3>Get in touch</h3>
+            <p class="muted">Email: <a href="mailto:youremail@example.com" style="color:var(--accent)">qali64620@gmail.com</a></p>
+            <p class="muted">Phone: <a href="tel:+923001234567" style="color:var(--accent)">+92 3167800889</a></p>
+            <div style="margin-top:12px">
+              <a class="tag" href="#">GitHub</a>
+              <a class="tag" href="https://www.linkedin.com/in/qasim-ali-182a10375/">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="footer">Made with ♥ • Customize this template and add your real content.</div>
+  </div>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'});} 
+      })
+    })
+  </script>
 </body>
 </html>
